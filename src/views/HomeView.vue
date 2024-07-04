@@ -9,6 +9,15 @@
       The counter is: {{ counterStore.oddOrEven }}
     </div>
   </div>
+  <hr>
+  <div>
+    <h3>Edit counter:</h3>
+    <input 
+    v-model="counterStore.count"
+    type="number"
+    min="0"
+    >
+  </div>
 </template>
 
 <script setup>
