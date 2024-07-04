@@ -15,16 +15,19 @@ export const useCounterStore = defineStore({
         this.count--
       }
     },
-    getters:{
-      oddOrEven(){
-        this.count % 2 === 0 ? "even" : "odd"
-      },
-      oddOrEvenArrow: (state) => {
-        if(state.count % 2 === 0){
-          return "even"
-        }else{
-          return "odd"
-        }
+  },
+  getters:{
+    oddOrEven(){
+      if(this.count % 2 === 0){
+        return "even"
+      }
+      return "odd"
+    },
+    oddOrEvenArrow: (state) => {
+      if(state.count % 2 === 0){
+        return "even"
+      }else{
+        return "odd"
       }
     }
   }
