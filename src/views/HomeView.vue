@@ -1,38 +1,21 @@
 <template>
   <div class="home">
-    <div class="count">{{ count }}</div>
+    <div class="count">{{ counterStore.count }}</div>
     <div class="buttons">
-      <button @click="decreaseCount">-</button>
-      <button @click="increaseCount">+</button>
+      <button @click="counterStore.decreaseCount">-</button>
+      <button @click="counterStore.increaseCount">+</button>
     </div>
     <div>
-      The counter is: {{ oddOrEven }}
+      The counter is: {{ counterStore.oddOrEven }}
     </div>
   </div>
 </template>
 
 <script setup>
-import { computed, ref } from 'vue'
+import { useCounterStore } from '@/stores/counter'
 
-const count = ref(2)
+const counterStore = useCounterStore()
 
-const increaseCount = ()=>{
-  count.value++
-}
-
-const decreaseCount = ()=>{
-  if(count.value > 0){
-    count.value--
-  }
-}
-
-const oddOrEven = computed(()=>{
-  if(count.value % 2 === 0){
-    return 'even'
-  }else{
-    return 'odd'
-  }
-})
 </script>
 
 <style scoped>
